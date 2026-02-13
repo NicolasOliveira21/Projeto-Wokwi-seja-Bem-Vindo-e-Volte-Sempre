@@ -1,2 +1,19 @@
-# Projeto-Wokwi-seja-Bem-Vindo-e-Volte-Sempre
-Este projeto, desenvolvido em MicroPython, automatiza o atendimento em restaurantes e comércios, utilizando sensor ultrassônico para detectar a aproximação de clientes, acionando LEDs RGB e exibindo mensagens em display OLED, tornando o ambiente mais interativo e tecnológico. Sou Nicolas de Souza Oliveira, estudante de ADS na Fatec Jales.
+# Sistema de Boas-Vindas Automatizado
+
+## Tecnologias
+
+-   ESP32
+-   MicroPython
+-   Sensor HC-SR04
+-   Display OLED SSD1306
+
+## Funcionamento
+
+1.  Detecta aproximação menor que 30cm.
+2.  Exibe mensagem no display.
+3.  Aciona LEDs RGB.
+
+## Requisitos
+
+-   MicroPython instalado no ESP32
+-   Componentes eletrônicos compatíveis

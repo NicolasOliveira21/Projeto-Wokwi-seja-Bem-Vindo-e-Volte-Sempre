@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 48,
+      "left": -33.56,
+      "attrs": { "env": "micropython-20231227-v1.22.0" }
+    },
+    {
+      "type": "wokwi-rgb-led",
+      "id": "rgb1",
+      "top": 244,
+      "left": 125.9,
+      "attrs": { "common": "cathode" }
+    },
+    {
+      "type": "wokwi-rgb-led",
+      "id": "rgb2",
+      "top": 167.2,
+      "left": 125.9,
+      "attrs": { "common": "cathode" }
+    },
+    {
+      "type": "wokwi-rgb-led",
+      "id": "rgb3",
+      "top": 90.4,
+      "left": 125.9,
+      "attrs": { "common": "cathode" }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": -8.1,
+      "left": 178.3,
+      "attrs": { "distance": "2" }
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": 195.14,
+      "left": 230.63,
+      "attrs": { "i2cAddress": "0x3c" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:21", "oled1:SDA", "red", [ "h48", "v48", "h182.4" ] ],
+    [ "oled1:SCL", "esp:22", "blue", [ "v-38.4", "h-162.9", "v-67.2" ] ],
+    [ "esp:3V3", "oled1:VCC", "green", [ "h0.15", "v-57.6", "h192", "v86.4", "h48" ] ],
+    [ "oled1:GND", "esp:GND.2", "black", [ "v-38.4", "h-172.8", "v-86.4" ] ],
+    [ "esp:5", "ultrasonic1:TRIG", "green", [ "h0" ] ],
+    [ "esp:18", "ultrasonic1:ECHO", "blue", [ "h0" ] ],
+    [
+      "esp:5V",
+      "ultrasonic1:VCC",
+      "red",
+      [ "h0.15", "v19.2", "h163.2", "v-48", "h86.4", "v-105.6", "h28.8" ]
+    ],
+    [ "ultrasonic1:GND", "esp:GND.2", "black", [ "v9.6", "h-154.8", "v-19.2" ] ],
+    [ "rgb3:COM", "esp:GND.2", "black", [ "v-0.4", "h-57.5", "v-67.2" ] ],
+    [ "rgb2:COM", "esp:GND.2", "black", [ "v-0.4", "h-38.3", "v-144" ] ],
+    [ "rgb1:COM", "esp:GND.2", "black", [ "v-0.4", "h-47.9", "v-134.4" ] ],
+    [ "esp:2", "rgb1:R", "red", [ "h48", "v76.8" ] ],
+    [ "esp:4", "rgb1:G", "green", [ "h38.4", "v124.8", "h48" ] ],
+    [ "esp:13", "rgb1:B", "blue", [ "h-9.45", "v96", "h201.6" ] ],
+    [ "esp:15", "rgb2:R", "red", [ "v0", "h57.6", "v-9.6" ] ],
+    [ "esp:16", "rgb2:G", "green", [ "h19.2", "v57.6", "h67.2" ] ],
+    [ "esp:14", "rgb2:B", "blue", [ "h-19.05", "v96", "h134.4", "v-28.8", "h67.2" ] ],
+    [ "esp:19", "rgb3:R", "red", [ "h0" ] ],
+    [ "esp:17", "rgb3:G", "green", [ "h0" ] ],
+    [ "esp:27", "rgb3:B", "blue", [ "h-9.45", "v-134.4", "h211.2", "v96" ] ]
+  ],
+  "dependencies": {}
+}
